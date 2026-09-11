@@ -8,6 +8,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 
 from app.api.auth import router as auth_router
+from app.api.weather import router as weather_router
 from app.core.config import get_settings
 
 logging.basicConfig(
@@ -40,6 +41,7 @@ app.add_middleware(
 )
 
 app.include_router(auth_router)
+app.include_router(weather_router)
 
 
 @app.exception_handler(HTTPException)

@@ -33,6 +33,10 @@ class Settings(BaseSettings):
     # --- CORS (front en desarrollo, Vite) ---
     CORS_ORIGINS: str = "http://localhost:5173"
 
+    # --- WeatherAPI (specs/02-Consulta-clima.md) ---
+    WEATHER_API_KEY: str = ""
+    WEATHER_API_BASE_URL: str = "https://api.weatherapi.com/v1"
+
     model_config = SettingsConfigDict(env_file=".env", env_file_encoding="utf-8", extra="ignore")
 
     @model_validator(mode="after")
