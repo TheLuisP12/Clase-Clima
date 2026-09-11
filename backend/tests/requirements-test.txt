@@ -1,0 +1,14 @@
+# Dependencias EXTRA solo para correr la suite de QA de backend/tests/.
+# No reemplazan ni modifican backend/requirements.txt (dependencias de la app).
+#
+# IMPORTANTE (ver QA_REPORT.md - bug BACK-1): en este entorno,
+# `passlib[bcrypt]==1.7.4` (fijado en backend/requirements.txt) es
+# INCOMPATIBLE con versiones de `bcrypt` >= 4.1 (rompe hash_password /
+# verify_password con "error reading bcrypt version" /
+# "password cannot be longer than 72 bytes"). Para poder ejecutar esta
+# suite se instaló explícitamente bcrypt==4.0.1. Esto es un hallazgo de QA
+# para Bastian, no una corrección: backend/requirements.txt debe fijar una
+# versión de bcrypt compatible con passlib 1.7.4 (o migrar de passlib).
+pytest==9.1.1
+httpx==0.28.1
+bcrypt==4.0.1
