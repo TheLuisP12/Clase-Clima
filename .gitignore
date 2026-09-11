@@ -3,3 +3,6 @@ Thumbs.db
 *.log
 .vscode/
 .idea/
+
+# Variables de docker-compose (credenciales de Postgres, etc).
+.env
